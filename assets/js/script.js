@@ -1,22 +1,19 @@
 // Assignment code here
 document.querySelector("#generate").addEventListener("click", writePassword);
 
-
+// password variables
 var confirmLength = "";
 var confirmNumber;
 var confirmCharacter;
 var confirmUppercase;
 var confirmLowercase;
-// password variables 
-// number set
+ 
+//password arrays
 var number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-// character set
-var character = ["$", "!", "%", "&", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"]
-// lowercase alphabetical set
+var character = ["$", "!", "%", "&", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 var alphaLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// uppercase alphabetical set
 var alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-// password variables end
+
 
 function generatePassword() {
   var confirmLength = (prompt("How many characters in password? Must be between 8 and 128."));
