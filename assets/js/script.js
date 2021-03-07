@@ -7,15 +7,16 @@ var confirmNumber;
 var confirmCharacter;
 var confirmUppercase;
 var confirmLowercase;
-// password variables start
+// password variables 
 // number set
 var number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // character set
 var character = ["$", "!", "%", "&", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"]
-// alphabetical set
+// lowercase alphabetical set
 var alphaLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// upper for Uppercase conversion
+// uppercase alphabetical set
 var alphaUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+// password variables end
 
 function generatePassword() {
   var confirmLength = (prompt("How many characters in password? Must be between 8 and 128."));
@@ -23,7 +24,7 @@ function generatePassword() {
     var confirmLength = (prompt("How many characters in password? Must be between 8 and 128."));
   }
 
-  // Get references to the #generate element
+  // confirm window for password parameters
   var confirmNumber = confirm("Click OK to include numbers in password.");
   var confirmCharacter = confirm("Click OK to include characters in password.");
   var confirmUppercase = confirm("Click OK to include uppercase letters in password.");
@@ -31,15 +32,15 @@ function generatePassword() {
 
 
   while (confirmUppercase === false && confirmLowercase === false && confirmCharacter === false && confirmNumber === false) {
-    alert("You must choose at lease ONE!!");
+    alert("You must choose at least ONE!!");
     var confirmNumber = confirm("Click OK to include numbers in password.");
     var confirmCharacter = confirm("Click OK to include characters in password.");
     var confirmUppercase = confirm("Click OK to include uppercase letters in password.");
     var confirmLowercase = confirm("Click OK to inlcude lowercase letters in password.");
 
   }
-
-  var passwordCharacters = []
+// if statements for password conditions//
+  var passwordCharacters = ""
 
   if (confirmNumber) {
     passwordCharacters = passwordCharacters.concat(number)
@@ -60,7 +61,7 @@ function generatePassword() {
   console.log(passwordCharacters)
 
   var randomPassword = ""
-
+// loop for password genrator
   for (var i = 0; i < confirmLength; i++) {
     randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
     console.log(randomPassword)
@@ -70,14 +71,15 @@ function generatePassword() {
 
 }
 
+// password function
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+  console.log(password)
 }
 
 
-  // Add event listener to generate button
-  generateBtn.addEventListener("click", writePassword);
+  
 
